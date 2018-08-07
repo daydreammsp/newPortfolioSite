@@ -795,9 +795,14 @@ more media queries
 
 i{
 	font-size: 100px;
-	color:white;
+	color: white;
 }
 .mainNavIcon{
 	font-size: 35px;
 	margin: -10px auto;
 }
+
+/* .iServices{
+	font-size: 200px;
+	color: black
+} */

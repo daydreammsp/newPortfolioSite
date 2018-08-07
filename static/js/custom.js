@@ -1,5 +1,9 @@
 (function($) {
-
+  $("#submit1").click(function(){
+    $.post(".contactform", function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+    });
+});
   // Back to top button
   $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
@@ -57,9 +61,9 @@
       // else:
 
       images: [
-        "img/bgslides/1.jpg",
-        "img/bgslides/2.jpg",
-        "img/bgslides/3.jpg"
+        "/static/img/bgslides/1.jpg",
+        "/static/img/bgslides/2.jpg",
+        "/static/img/bgslides/3.jpg"
       ],
 
       onStart: function() {},
