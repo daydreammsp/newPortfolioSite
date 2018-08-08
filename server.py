@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, json
+from flask import Flask, request, render_template, json, url_for
 from flask_mail import Mail
 from flask_mail import Message
 from dotenv import load_dotenv
@@ -20,10 +20,10 @@ app.config.update(dict(
 ))
 mail = Mail(app)
 
-@app.route('/favicon.ico')
-def favicon():
-    return app.add_url_rule('/favicon.ico',
-                 redirect_to=url_for('static', filename='favicon.ico'))
+# @app.route('/favicon.ico')
+# def favicon():
+#     return app.add_url_rule('/favicon.ico',
+#                  redirect_to=url_for('static', filename='favicon.ico'))
 
 @app.route("/")
 def hello():  
