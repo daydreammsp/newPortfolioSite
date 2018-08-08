@@ -817,3 +817,7 @@ i{
 #magentologo{
 	font-size: 300px;
 }
+i:hover{
+	font-size: 75px;
+
+}
