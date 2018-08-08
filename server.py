@@ -36,7 +36,7 @@ def signUpUser():
                   recipients=['jonathanskruse@gmail.com'])
 
     mail.send(msg)
-    return json.dumps({'status':'OK','name': name,'email': email})
+    return 'OK'
 
 
 
