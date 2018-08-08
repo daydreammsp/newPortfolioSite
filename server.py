@@ -1,17 +1,43 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, json
+from flask_mail import Mail
+from flask_mail import Message
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 app = Flask(__name__)
-
+app.config.update(dict(
+    DEBUG = True,
+    MAIL_SERVER = 'smtp.gmail.com',
+    MAIL_PORT = 587,
+    MAIL_USE_TLS = True,
+    MAIL_USE_SSL = False,
+    MAIL_USERNAME = os.getenv("mailUsername"),
+    MAIL_PASSWORD = os.getenv("mailPassword"),
+))
+mail = Mail(app)
 @app.route("/")
 def hello():  
     return render_template('index.html')
 
 
 
-@app.route('/signUpUser', methods=['POST'])
+@app.route('/contact', methods=['POST'])
 def signUpUser():
-    print('hello server side')
-    return 'it worked'
+    name =  request.form['name']
+    email = request.form['email']
+    subject = request.form['subject']
+    message = request.form['message']
+    
+    print('hello server side', request.form)
+    msg = Message("Hello",
+                html='<h2>' + name + '</h2>''<h2>' + email + '</h2>''<h2>' + subject + '</h2>''<h2>' + message + '</h2>',
+                  sender="jskruseportfoliosite@gmail.com",
+                  recipients=['jonathanskruse@gmail.com'])
+
+    mail.send(msg)
+    return json.dumps({'status':'OK','name': name,'email': email})
+
 
 
 # run the application
