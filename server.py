@@ -8,7 +8,7 @@ from flask import send_from_directory
 
 load_dotenv()
 
-app = Flask(__name__)
+application = Flask(__name__)
 app.config.update(dict(
     DEBUG = True,
     MAIL_SERVER = 'smtp.gmail.com',
@@ -20,19 +20,19 @@ app.config.update(dict(
 ))
 mail = Mail(app)
 
-@app.route('/favicon.ico')
+@application.route('/favicon.ico')
 def favicon():
     return app.add_url_rule('/favicon.ico',
                  redirect_to=url_for('static', filename='favicon.ico'))
 
-@app.route("/")
+@application.route("/")
 def hello():  
     return render_template('index.html')
 
 
 
 
-@app.route('/contact', methods=['POST'])
+@application.route('/contact', methods=['POST'])
 def signUpUser():
     name =  request.form['name']
     email = request.form['email']
