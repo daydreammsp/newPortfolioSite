@@ -3,6 +3,9 @@ from flask_mail import Mail
 from flask_mail import Message
 from dotenv import load_dotenv
 import os
+from flask import send_from_directory
+
+
 load_dotenv()
 
 app = Flask(__name__)
@@ -38,6 +41,10 @@ def signUpUser():
     mail.send(msg)
     return 'OK'
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/png')
 
 
 # run the application
