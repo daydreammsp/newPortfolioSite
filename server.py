@@ -22,8 +22,8 @@ mail = Mail(app)
 
 @app.route('/favicon.ico')
 def favicon():
-    return app.add_url_rule('/favicon.ico',
-                 redirect_to=url_for('static', filename='favicon.ico'))
+    return send_from_directory(os.path.join(app.root_path, 'static', 'img'),
+                               'favicon.ico', mimetype='image/png')
 
 @app.route("/")
 def hello():  
