@@ -6,6 +6,14 @@ app = Flask(__name__)
 def hello():  
     return render_template('index.html')
 
+
+
+@app.route('/signUpUser', methods=['POST'])
+def signUpUser():
+    print('hello server side')
+    return 'it worked'
+
+
 # run the application
 if __name__ == "__main__":  
     app.run(debug=True)

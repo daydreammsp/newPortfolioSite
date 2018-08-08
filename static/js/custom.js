@@ -1,9 +1,29 @@
 (function($) {
-  $("#submit1").click(function(){
-    $.post(".contactform", function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
+  $(function() {
+    $('#submit2').click(function(){
+      // var user = $('#inputUsername').val();
+      // var pass = $('#inputPassword').val();
+
+      $.ajax({
+        url: '/signUpUser',
+        data: 'client side stuff',
+        type: 'POST',
+        success: function(response){
+          console.log(response);
+        },
+        error: function(error){
+          console.log(error);
+        }
+      });
     });
 });
+//   $("#submit1").click(function(){
+//     console.log('clicked submit')
+//     $.post("../api", function(data, status){
+//       console.log(data)
+//         alert("Data: " + data + "\nStatus: " + status);
+//     });
+// });
   // Back to top button
   $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {

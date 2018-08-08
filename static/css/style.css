@@ -821,3 +821,8 @@ i:hover{
 	font-size: 75px;
 
 }
+.footerNav{
+	padding: 10px;
+	list-style-type: none;
+
+}
