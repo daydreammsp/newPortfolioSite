@@ -802,7 +802,12 @@ i{
 	margin: -10px auto;
 }
 
-/* .iServices{
-	font-size: 200px;
-	color: black
-} */
+.magentoDiv{
+	
+	
+	height:600px;
+}
+
+#magentologo{
+	font-size: 300px;
+}
