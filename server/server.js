@@ -14,10 +14,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //contact form route
 
 
-app.use(favicon(path.join(__dirname, 'favicon.ico')));
+
 
 app.use(express.static('public/static'));
-
+app.use(favicon(path.join(__dirname, 'favicon.ico')));
 app.use('/', contactForm);
 
 // App Set //
