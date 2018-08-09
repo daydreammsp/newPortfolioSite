@@ -1,7 +1,6 @@
 const express = require('express');
 const contactForm = require('./routes/contactForm.route');
-var favicon = require('serve-favicon')
-var path = require('path')
+
 
 
 const app = express();
@@ -14,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //contact form route
 
 
-app.use(favicon(path.join(__dirname, 'favicon.ico')));
+
 
 app.use(express.static('public/static'));
 
