@@ -1,17 +1,20 @@
 const express = require('express');
 const contactForm = require('./routes/contactForm.route');
-const favicon = require('express-favicon');
+var favicon = require('serve-favicon')
+var path = require('path')
 
 
 const app = express();
 const bodyParser = require('body-parser');
-app.use(favicon(__dirname + '/public/favicon.ico'));
+
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //contact form route
 
+
+app.use(favicon(path.join(__dirname, 'favicon.ico')));
 
 app.use(express.static('public/static'));
 
